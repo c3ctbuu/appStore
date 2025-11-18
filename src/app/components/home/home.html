@@ -1,0 +1,21 @@
+<app-header></app-header>
+<main>
+    <div class="products-section">
+        <h2>Nuestros Productos</h2>
+        <div class="products-grid">
+            <div class="product-card" *ngFor="let product of publishedProducts">
+                <!--   imagen    -->
+                <div class="product-image">
+                    <img [src]="product.foto" alt="{{ product.nombre }}">
+                </div>
+                <!--   caracteristicas   -->
+                <div class="product-info">
+                    <h3 class="product-name">{{ product.nombre }}</h3>
+                    <p class="product-description">{{ product.descripcion }}</p>
+                    <div class="product-price">${{ product.precio }}</div>
+                    <button class="add-to-cart-btn">Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

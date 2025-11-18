@@ -1,0 +1,54 @@
+<app-header></app-header>
+<main>
+    <div class="form-bordered">
+        <form action="">
+            <div class="form-group">
+                <label for="">Imagen del producto</label>
+                <br>
+                <input class="file-area" type="file" name="photo" accept="recursos/*" (change)="onFileSelected($event)">
+            </div>
+
+            <div class="form-group">
+                <label for="">Name</label> <br>
+                <input class="input" type="text" name="nam" placeholder="enter your name" [(ngModel)]="productObj.nombre">
+            </div>
+
+            <div class="form-group">
+                <label for="">Description</label><br>
+                <input class="input" type="text" name="description" placeholder="enter your description"
+                    [(ngModel)]="productObj.descripcion">
+            </div>
+
+            <div class="form-group">
+                <label for="">Price</label><br>
+                <input class="input" type="number" name="price" placeholder="enter your price"
+                    [(ngModel)]="productObj.precio">
+            </div>
+
+            <div class="form-group">
+                <br>
+                <input class="btn-bordered" type="button" value="safe article" (click)="onsaveRecord()">
+            </div>
+        </form>
+    </div>
+
+    <div class="products-section">
+        <h2>Products saveds</h2>
+        <div class="products-grid">
+            <div class="product-card" *ngFor="let product of productsToShow">
+                <div class="product-image">
+                    <img [src]="product.foto" alt="{{ product.nombre }}">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">{{ product.nombre }}</h3>
+                    <p class="product-description">{{ product.descripcion }}</p>
+                    <div class="product-price">${{ product.precio }}</div>
+                    <div class="product-actions">
+                        <button class="btn-publish" (click)="onPublishProduct(product)">Agregar</button>
+                        <button class="btn-delete" (click)="onDeleteDraft(product)">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

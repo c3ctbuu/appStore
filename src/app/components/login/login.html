@@ -1,0 +1,26 @@
+<section>
+    <div>
+        <img src="/recursos/Nike_logo.png" alt="Nike_logo">
+        <h2 class="login-title">Login</h2>
+        <form (ngSubmit)="onlogin()">
+            <div class="form-group">
+                <br>
+                <label for="email">email</label>
+                <input class="input" type="text" id="email" name="email" [(ngModel)]="loginObj.correo" placeholder="enter your email"
+                    ngModel required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">password</label>
+                <input class="input" type="password" id="password" name="password" [(ngModel)]="loginObj.password"
+                    placeholder="enter your password" ngModel required>
+            </div>
+
+            <button class="btn-login" type="submit" [disabled]="">Login</button>
+        </form>
+        <br>
+        <a>forgot password?</a>
+        <br>
+        <a>create account</a>
+    </div>
+</section>
