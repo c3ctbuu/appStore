@@ -8,6 +8,7 @@ import { Header } from './components/header/header';
 import { Shopping } from './components/shopping/shopping';
 import { Singin } from './components/singin/singin';
 import { Newarticle } from './components/newarticle/newarticle';
+import { authGuard } from './services/auth-guard';
 
 export const routes: Routes = [
     {
@@ -17,7 +18,8 @@ export const routes: Routes = [
     },
     {
         path: 'home',
-        component: Home
+        component: Home,
+        canActivate: [authGuard]
     },
     {
         path: 'login',
@@ -25,31 +27,40 @@ export const routes: Routes = [
     },
     {
         path: 'footer',
-        component: Footer
+        component: Footer,
+        canActivate: [authGuard]
     },
     {
         path: 'favorites',
-        component: Favorites
+        component: Favorites,
+        canActivate: [authGuard]
     },
     {
         path: 'forgot-password',
-        component: ForgotPassword
+        component: ForgotPassword,
+        canActivate: [authGuard]
     },
     {
         path: 'header',
-        component: Header
+        component: Header,
+        canActivate: [authGuard]
     },
     {
         path: 'shopping',
-        component: Shopping
+        component: Shopping,
+        canActivate: [authGuard]
     },
     {
         path: 'singing',
-        component: Singin
+        component: Singin,
+        canActivate: [authGuard]
     }, {
         path: 'newarticle',
-        component: Newarticle
-    }
+        component: Newarticle,
+        canActivate: [authGuard]
+    },{ 
+        path: '**', 
+        redirectTo: 'login' }
 ];
 
 

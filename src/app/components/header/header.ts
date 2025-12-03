@@ -1,5 +1,7 @@
 import { CommonModule} from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { Clientes } from '../../services/clientes';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +11,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './header.css'
 })
 export class Header implements OnInit {
+  private clientesService = inject(Clientes);
+  private router = inject(Router);
   
   userRole: string | null = null;
 
   ngOnInit(): void {
-    this.userRole = localStorage.getItem('userRole');
+    this.userRole = this.clientesService.getUserRole();
+  }
+
+  onLogout() {
+    // 1. Borramos la sesión
+    this.clientesService.logout();
+    
+    // 2. Redirigimos al login reemplazando la historia
+    this.router.navigate(['/login'], { replaceUrl: true });
   }
 }
