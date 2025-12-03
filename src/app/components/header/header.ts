@@ -21,10 +21,8 @@ export class Header implements OnInit {
   }
 
   onLogout() {
-    // 1. Borramos la sesión
     this.clientesService.logout();
     
-    // 2. Redirigimos al login reemplazando la historia
     this.router.navigate(['/login'], { replaceUrl: true });
   }
 }
