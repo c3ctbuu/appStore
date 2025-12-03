@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, RouterState } from '@angular/router';
 import { Home } from './components/home/home';
 import { Login } from './components/login/login'
 import { Footer } from './components/footer/footer';
@@ -9,6 +9,7 @@ import { Shopping } from './components/shopping/shopping';
 import { Singin } from './components/singin/singin';
 import { Newarticle } from './components/newarticle/newarticle';
 import { authGuard } from './services/auth-guard';
+
 
 export const routes: Routes = [
     {
@@ -59,8 +60,8 @@ export const routes: Routes = [
         component: Newarticle,
         canActivate: [authGuard]
     },{ 
-        path: '**', 
-        redirectTo: 'login' }
+        path: '**',
+        redirectTo: 'login' } 
 ];
 
 

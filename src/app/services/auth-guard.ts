@@ -7,10 +7,9 @@ export const authGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
 
   if (authService.getUserRole()) {
-    return true; // ¡Tiene permiso, déjalo pasar!
+    return true; 
   } else {
-    // Si no tiene rol, lo mandamos al login
     router.navigate(['/login']);
-    return false; // ¡Alto ahí! Acceso denegado.
+    return false; 
   }
 };
